@@ -1,25 +1,25 @@
 'use strict';
 
 //* 2015год -> Классы - в стандарте ES6
-//* Синтактический сахар
+//* Синтактический сахар -> красивая обертка функции конструктора
+//! Классы всегда называются с БОЛЬШОЙ БУКВЫ
 
+//* Концепция --
 class Rectangle {
-    constructor(height, width) {
-        this.height = height;
+    constructor(width, height) {
         this.width = width;
+        this.height = height;
     }
 
     calcArea() {
-        return this.height * this.width;
+        return this.width * this.height;
     }
 }
 
-//* Наследование свойств и методов от класса «Rectangle»
+//* Делаем наследоваемость
 class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        //* Метод который вызывает конструктор родителя «Rectangle»
-        //! Должна быть всегда на первом месте в конструкторе при раскрытии конструктора
-        super(height, width);
+    constructor(width, height, text, bgColor) {
+        super(width, height); //* вызываем конструктор родителя (width, height)
         this.text = text;
         this.bgColor = bgColor;
     }
@@ -29,14 +29,15 @@ class ColoredRectangleWithText extends Rectangle {
     }
 }
 
-const div = new ColoredRectangleWithText(25, 10, 'Hello', 'yellow');
+//* Экземпляры --
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(100, 25);
+
+const div = new ColoredRectangleWithText(25, 10, 'Hello!', 'red');
 
 div.showMyProps();
 console.log(div.calcArea());
 
-// const square = new Rectangle(10, 10);
-// const long = new Rectangle(20, 100);
-
-// console.log(square.calcArea());
-// console.log(long.calcArea());
+console.log(square.calcArea());
+console.log(long.calcArea());
 
