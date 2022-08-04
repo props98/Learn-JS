@@ -1,106 +1,58 @@
+"use strict";
 
-//! Асинхронный код - setTimeout()
-                          //! анонимная функция - без имени
-const time1Id = setTimeout(function() {
-    console.log('text1');
-}, 2000);
+//* setInterval - setTimeout
 
-//! передача аргумента функции, через третий аргумент в setTimeout
-//* Используеться редко
-// const timeId = setTimeout(function(text) {
+//* Вызов анонимной функции через 2сек.
+// const timerId = setTimeout(function(text) {
 //     console.log(text);
 // }, 2000, 'Hello');
 
-//! Передача функцию аргументом (без ее вызова)
-const time2Id = setTimeout(logger, 4000);
+//* Передача готовой функции - без вызова «()» функции 
+// const getLogger = setTimeout(logger, 2000);
 
-//! Сброс команды SetInterval
-clearInterval(time1Id);
-clearInterval(time2Id);
+//* очищение интервала
+// clearInterval(timerId);
 
-function logger() {
-    console.log('text2');
-}
-
-
-//! Анимация на странице при нажатии на кнопку
-//! Используем команду setInterval
 const btn = document.querySelector('.btn');
-let time3Id;
-let i = 0;
+let getLogger,
+    i = 0;
 
-// function anim() {
+// function logger() {
 //     if (i === 3) {
-//         clearInterval(time3Id);
+//         clearInterval(getLogger);
 //     }
-//     console.log('animation check');
+//     console.log('text');
 //     i++;
 // }
 
 // btn.addEventListener('click', () => {
-//     time3Id = setInterval(anim, 1000);
+//     // const timerId = setTimeout(logger, 2000);
+//     getLogger = setInterval(logger, 500);
 // });
 
 
-//! Рекурсивный вызов setTimeout
-//* let id = setTimeout(function log() {
-//*     console.log('Hello');
-//*     id = setTimeout(log, 500)
-//* }, 500);
-
-const elem = document.querySelector('.box');
-let direction = 'right';
-let offset = 0;
-let id;
+//* Рекурсивный пример setInterval
+//* Когда выполняться все действия произойдет повтор строго через 5сек.
+// let id = setTimeout(function log() {
+//     console.log('Recursion');
+//     id = setTimeout(log, 500);
+// }, 500);
 
 function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
 
-    id = setInterval(frame, 20)
+    const id = setInterval(frame, 10);
+
     function frame() {
-        
-        // if (pos == 300) {
-        //     clearInterval(id);
-        // } else {
-        //     pos++;
-        //     elem.style.top = pos + 'px';
-        //     elem.style.left = pos + 'px';
-        // }
-
-        if (direction === 'right') {
-            elem.style.left = offset + 'px';
-            offset++;
-            if (offset > 300) {
-                offset = 0;
-                direction = 'down'
-            }
-        } else if (direction === 'down') {
-            elem.style.top = offset + 'px';
-            offset++;
-            if (offset > 300) {
-                offset = 300;
-                direction = 'left';
-            }
-        } else if (direction === 'left') {
-            elem.style.left = offset + 'px';
-            offset--;
-            if (offset < 0) {
-                offset = 300;
-                direction = 'top'
-            }
-        } else if (direction === 'top') {
-            elem.style.top = offset + 'px';
-            offset--;
-            if (offset < 0) {
-                offset = 0;
-                direction = 'right'
-            }
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
         }
-
     }
-};
+}
 
 btn.addEventListener('click', myAnimation);
-
-elem.addEventListener('click', () => {
-    clearInterval(id);
-})
