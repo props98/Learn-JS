@@ -5,7 +5,7 @@ console.log(box);
 
 const btns = document.getElementsByTagName('button');
 console.log(btns);
-btns[0].style.background = 'tomato';
+btns[0].style.background = 'purple';
 
 const circles = document.getElementsByClassName('circle');
 console.log(circles);

@@ -104,7 +104,7 @@ for (let i = 0; i < btns.length; i++) {
 const wrapperCircle = document.createElement('div');
 
 for (let i = 0; i < circles.length; i++) {
-    circles[i].style.cssText = 'background-color: green;';
+    circles[i].style.cssText = 'background-color: tomato;';
     wrapperCircle.insertAdjacentHTML('afterbegin', circles);
 }
 
