@@ -1,2 +1,2 @@
-# Project Video Lessons JS
+# Video Lessons JS
 Учебный процесс
