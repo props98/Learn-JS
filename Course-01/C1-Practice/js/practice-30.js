@@ -16,6 +16,19 @@
 
 (function() {
 
+   //! DataBase
+   const movieDB = {
+      movies: [
+          "Логан",
+          "Лига справедливости",
+          "Ла-ла лэнд",
+          "Одержимость",
+          "Скотт Пилигрим против...",
+          "Апполон",
+          "Ямакаси"
+      ]
+  };
+
   const promoAdv = document.querySelectorAll('.promo__adv img');
   promoAdv.forEach(promo => {
     promo.remove();
@@ -29,9 +42,9 @@
 
   const movieList = document.querySelector('.promo__interactive-list');
   movieList.innerHTML = '';
-  window.movieDB.movies.sort();
+  movieDB.movies.sort();
 
-  window.movieDB.movies.forEach((film, i) => {
+  movieDB.movies.forEach((film, i) => {
     movieList.innerHTML += `
       <li class="promo__interactive-item">${i + 1}. ${film}
         <div class="delete"></div>
