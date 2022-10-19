@@ -39,14 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
          genre = promoBg.querySelector('.promo__genre'),
          movieList = document.querySelector('.promo__interactive-list');
   
-   const form = document.querySelector('form.adv'),
+   const form = document.querySelector('.add'),
          addInput = form.querySelector('.adding__input'),
          checkbox = form.querySelector('[type=checkbox]');
   
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      console.log(addInput.value);
       
-    })
+    });
   
   
    promoAdv.forEach(promo => {
