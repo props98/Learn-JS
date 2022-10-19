@@ -35,7 +35,7 @@ P.S. Здесь есть несколько вариантов решения з
 
 //! Событие загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
-
+ 
     //! DataBase
     const movieDB = {
         movies: [

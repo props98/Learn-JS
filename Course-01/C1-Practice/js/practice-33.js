@@ -1,16 +1,71 @@
-/* Задания на урок:
+/*
+1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
+новый фильм добавляется в список. Страница не должна перезагружаться.
+Новый фильм должен добавляться в movieDB.movies.
+Для получения доступа к значению input - обращаемся к нему как input.value;
+P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
 
-1) Удалить все рекламные блоки со страницы (правая часть сайта)
+2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
 
-2) Изменить жанр фильма, поменять "комедия" на "драма"
+3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
 
-3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
-Реализовать только при помощи JS
+4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
+"Добавляем любимый фильм"
 
-4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
-
-5) Добавить нумерацию выведенных фильмов */
+5) Фильмы должны быть отсортированы по алфавиту 
+*/
 
 'use strict';
 
+document.addEventListener('DOMContentLoaded', () => {
+  (function() {
+
+    //! DataBase
+    const movieDB = {
+       movies: [
+           "Логан",
+           "Лига справедливости",
+           "Ла-ла лэнд",
+           "Одержимость",
+           "Скотт Пилигрим против...",
+           "Апполон",
+           "Ямакаси"
+       ]
+   };
+  
+  
+   const promoAdv = document.querySelectorAll('.promo__adv img'),
+         promoBg = document.querySelector('.promo__bg'),
+         genre = promoBg.querySelector('.promo__genre'),
+         movieList = document.querySelector('.promo__interactive-list');
+  
+   const form = document.querySelector('form.adv'),
+         addInput = form.querySelector('.adding__input'),
+         checkbox = form.querySelector('[type=checkbox]');
+  
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+    })
+  
+  
+   promoAdv.forEach(promo => {
+     promo.remove();
+   });
+  
+   promoBg.style.background = 'url(img/bg.jpg)';
+   genre.textContent = 'драма';
+  
+   movieList.innerHTML = '';
+   movieDB.movies.sort();
+  
+   movieDB.movies.forEach((film, i) => {
+     movieList.innerHTML += `
+       <li class="promo__interactive-item">${i + 1}. ${film}
+         <div class="delete"></div>
+       </li>
+     `;
+   })
+  
+  })();
+});
