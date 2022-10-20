@@ -1,34 +1,39 @@
+//* Мобильные события «Touch events»
+
 //? touchstart - касание экрана
-//? touchmove - смещение пальца
-//? touchend - потравание пальца от экрана
-//? touchenter -
-//? touchleave - 
+//? touchmove - перемещения пальца
+//? touchend - отрывание пальца от экрана
+//? touchenter - ведем пальцем сработает при поподании пальца 
+//? touchleave - палец продолжил скользить
 //? touchcancel - точка не регистрируется
 
 window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+    const btn = document.querySelector('.btn');
 
-    box.addEventListener('touchstart', (e) => {
+    // Tap(click) по элементу
+    btn.addEventListener('touchstart', (e) => {
         e.preventDefault();
-
-        console.log('Hello');
-        console.log(e.targetTouches);
+        console.log('Start');
+        console.log(e.touches);
+        // console.log(e.targetTouches);
+        // console.log(e.changedTouches);
     });
 
-    box.addEventListener('touchmove', (e) => {
+    // Ведение пальцем по объекту
+    btn.addEventListener('touchmove', (e) => {
         e.preventDefault();
-
+        console.log('Move');
         console.log(e.targetTouches[0].pageX);
     });
 
-    // box.addEventListener('touchend', (e) => {
-    //     e.preventDefault();
-
-    //     console.log('end');
-    // });
+    // Отрывание/убирание пальца от элемента
+    btn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        console.log('End');
+    });
 
 });
 
-//? touches - список всех пальцев которые заимодействуют с экраном
-//? targetTouches - 
-//? changedTouches
+//? touches - Список всех пальцев которые заимодействуют с экраном
+//? targetTouches - Список пальцев взаимодействующих с конкретным элементом
+//? changedTouches - Cписок пальцев участвующих в этом событии
