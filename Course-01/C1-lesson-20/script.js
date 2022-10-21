@@ -57,7 +57,7 @@ console.log(border);
 //* Делаем из свойств объекта массив «Object.keys()»
 console.log(Object.keys(options));
 
-//* Делаем подсчет массива методом «length»
+//* Делаем подсчет массива свойством «length»
 console.log(Object.keys(options).length);
 
 
