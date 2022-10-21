@@ -1,22 +1,28 @@
 "use srtict"
 
-function hello() {
-    console.log('Hello world!');
+//* Callback Функции
+
+function first() {
+  // Do something
+  setTimeout(function() {
+    console.log(1);
+  }, 500);
 }
 
-hello();
-
-function hi() {
-    console.log('Say Hi!');
+function second() {
+  console.log(2);
 }
 
-hi();
+first();
+second();
 
-const arr = [1, 14, 4, 30, 54],
-      sorted = arr.sort(compareNum);
-
-function compareNum(a, b) {
-    return a - b;
+function learnJS(lang, callback) {
+  console.log(`I'm learning ${lang}`);
+  callback();
 }
 
-console.log(sorted);
+function done() {
+  console.log('I\'m passed this lesson');
+}
+
+learnJS('JavaScript', done);
