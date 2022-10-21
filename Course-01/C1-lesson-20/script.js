@@ -19,6 +19,7 @@ const options = {
 // delete options.name
 // console.log(options);
 
+//! Перебор вложенных объектов
 for (let key in options) {
   if (typeof(options[key]) === 'object') {
     for (let i in options[key]) {
@@ -28,4 +29,6 @@ for (let key in options) {
     console.log(`Свойство: ${key} имеет значение ${options[key]} в объекте OPTIONS`);
   }
 };
+
+
 
