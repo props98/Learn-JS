@@ -1,5 +1,7 @@
 "use strict";
 
+//* События и их обработчики
+
 const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 

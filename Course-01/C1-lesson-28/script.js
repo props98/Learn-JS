@@ -1,5 +1,7 @@
 'use strict';
 
+//* Получение элементов со страницы
+
 const box = document.getElementById('box');
 console.log(box);
 

@@ -1,5 +1,7 @@
 "use strict";
 
+//* Async, defer - Динамические скрипты
+
 const p = document.querySelectorAll('p');
 console.log(p);
 

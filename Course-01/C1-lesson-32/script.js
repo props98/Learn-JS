@@ -1,5 +1,9 @@
 "use strict";
 
+//* Навигация по DOM - элемента
+//* [data-атрибуты]
+//* Преимущества «for of»
+
 //? Отталкиваемся от родителя
 // console.log(document.head);
 // console.log(document.body);

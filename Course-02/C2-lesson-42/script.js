@@ -1,5 +1,7 @@
 'use strict';
 
+//* Параметры документа окна и работа с ними
+
 const box = document.querySelector('.box'),
       btn = document.querySelector('button');
 

@@ -1,5 +1,6 @@
 "use strict";
 
+//* Переменные и строгий режим
 
 let number = 1;
 const leftBorderWidth = 3;
