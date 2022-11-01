@@ -1,5 +1,7 @@
 "use strict";
 
+//* Операторы в JS
+
 console.log('arr' + ' - object');
 console.log(4 + ' - object');
 

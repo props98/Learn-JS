@@ -1,5 +1,7 @@
 "use strict";
 
+//* Условия
+
 if (4 == 9) {
     console.log('ok!');
 } else {

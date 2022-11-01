@@ -1,5 +1,7 @@
 "use strict";
 
+//* Простое сообщение с пользователем
+
 // alert('Hello!');
 
 // const result = confirm('Are you here?');

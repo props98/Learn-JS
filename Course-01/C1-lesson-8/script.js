@@ -1,5 +1,7 @@
 "use strict";
 
+//* Интерполяция
+
 const category = 'toys';
 
 //! старый образец записи
