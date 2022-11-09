@@ -2,93 +2,79 @@
 
 //* Objects, деструктуризация объектов
 
-const options = {
-  name: 'test',
-  width: 1024,
-  height: 1024,
-  colors: {
-    border: 'black',
-    bg: 'tomato'
-  },
-  
-  makeTest: function() {
-    console.log('Obj methods Test');
-  }
-};
+// const obj = new Object(); //! Вариант возможен, но не используеться
 
 //* Созданный метод объекта
+const options = {
+  name: 'test',
+  width: 1080,
+  height: 1920,
+  colors: {
+    border: 'black',
+    background: 'red',
+    material: {
+      color: 'yellow',
+      size: 200,
+      counter: 2,
+    }
+  },
+  makeTest: function() {
+    console.log('My first Method');
+  }
+};
 options.makeTest();
 
-//* Деструктуризация объекта
-const {border, bg} = options.colors;
-console.log(border);
-
-
 // console.log(options.name);
-// console.log(options.colors.bg);
 
-//! Удаление свойства объекта при помощи «delete»
-// delete options.name
-// console.log(options);
+//* Деструктуризация объекта
+// console.log(options['colors']['border']); // заменить деструктуризацией
+const {border, background} = options.colors;
+console.log(background);
 
-//! Перебор вложенных объектов
+const {color, size, counter} = options.colors.material;
+console.log(color, size, counter);
 
 
-// for (let key in options) {
-//   if (typeof(options[key]) === 'object') {
-//     for (let i in options[key]) {
-//       console.log(`Свойство: ${i} имеет значение ${options[key][i]} в объекте OPTIONS[COLORS]`);
-//       // counter++;
-//     }
-//   } else {
-//     console.log(`Свойство: ${key} имеет значение ${options[key]} в объекте OPTIONS`);
-//     // counter++;
-//   }
-// };
-
-//* Узнаем сколько свойств у объекта
-//! Старый и не удобный метод подсчета свойств в объекте
-// let counter = 0;
-// for (let key in options) {
-//   counter++
-// };
-// console.log(counter);
-
-//* Делаем из свойств объекта массив «Object.keys()»
+//* Метод //* Делаем из свойств объекта массив «Object.keys()»
 console.log(Object.keys(options));
 
 //* Делаем подсчет массива свойством «length»
 console.log(Object.keys(options).length);
 
 
+//! Удаление свойства объекта при помощи «delete»
+// delete options.name; // удалили свойство - можно циклом
+// console.log(options); 
 
-const locker = {
-  name: 'cupboard',
-  width: 100,
-  height: 300,
-  pants: 2,
-  tshirt: 10,
-  innerbox: {
-    color: 'white',
-    square: 30,
-    socks: 5,
-    box: {
-      color: 'yellow',
-      underpants: 10,
-      box2: {
-        pen: 3,
-        pencil: 5
-      }
-    }
-  }
-};
+//! Перебор вложенных объектов «for (let item in object)»
+// for (let key in options) { 
+//   if (typeof(options[key]) === 'object') {
+//     for (let i in options[key]) {
+//       console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//     }
+//   } else {
+//     console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//   }
+// }
 
-// console.log(locker);
-// console.log(locker.innerbox.box.color);
-const {color, square, socks} = locker.innerbox;
-const {box} = locker.innerbox;
-const {box2} = box;
+//* Узнаем сколько свойств у объекта
+//! Старый и не удобный метод подсчета свойств в объекте
+let count = 0;
+for (let key in options) { 
+  // if (typeof(options[key]) === 'object') {
+  //   for (let i in options[key]) {
+  //     console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+  //   }
+  // } else {
+  //   console.log(`Свойство ${key} имеет значение ${options[key]}`);
+    count++;
+  // }
+}
+console.log(count);
 
-console.log(color);
-console.log(box);
-console.log(box2.pencil);
+
+
+
+
+
+
