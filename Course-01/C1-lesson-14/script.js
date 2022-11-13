@@ -1,15 +1,33 @@
 "use strict";
 
 //* Циклы
+let num = 50;
 
+//* Цикл «while»
+// while (num <= 55) {
+//   console.log(num);
+//   num++;
+// }
 
+//* Цикл «do while»
+// do {
+//   console.log(num);
+//   num++;
+// } while (num <= 55);
 
-//////////////////? Задачи
-
-//* Перебор четных цифр от 1 - 30
-for (let i = 1; i <= 30; i++) {
-    if (i % 2 !== 0) {
-        continue;
-    }
-    console.log(i);
+// Цикл «for of»
+for (let i = 1; i <= 5; i++) {
+  console.log(num);
+  num++;
 }
+
+// «for of» / «break» & «continue»
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    // break;
+    continue;
+  }
+  console.log(i);
+}
+
+ 
