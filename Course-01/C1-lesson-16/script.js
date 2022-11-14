@@ -2,59 +2,45 @@
 
 //* Функции, стрелочные функции
 
+let numGlobal = 30; // Глобальная переменная
 
 //* Function declaration -
-//* Создается до начала выполнения скрипта, можно вызвать перед объявлением
-//?  function foo() {
-//?     ...
-//?  }
+//* Создается до начала выполнения скрипта, можно вызывать перед объявлением
+function showMyFirstMessage(a, b) {
+  console.log(a + b);
+  numGlobal = 35;
+  let numLocal = 20; // локальная перменная - сущ. внутри функции
+  console.log(numGlobal);
+}
+
+function calc(a, b) {
+  return (a + b);
+}
+
+function ret() {
+  let num = 50;
+  return num;
+}
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+console.log(calc(2, 2));
+showMyFirstMessage(4, 5);
 
 //* Function expression - 
+//! Вызываеться ТОЛЬКО после объявления
 //* Создается только тогда, когда доходит поток кода, можно вызвать только после объявления
-//?  let foo = function() {
-//?      ...  
-//?  };
+let logger = function() {
+  console.log('hello');
+};
+
+logger();
+
 
 //* Стрелочные функции -
 //* Не имеет своего контескта (this) - контекста вызова
 /*const calc = (a, b) => a + b;*/ //*Если помещается в одну строчку
-//?  () => {
-//?      ...
-//?  };
-
-let num = 20;
-
-function showFirstMessage(text) {
-    console.log(text);
-    // let num = 10;
-    console.log(num);
-}
-showFirstMessage('Hello world!');
-console.log(num);
-
-
-function calc(a, b) {
-    return (a + b);
-    // console.log('dew'); // После return код не выполняеться
-}
-console.log(calc(2, 3));
-console.log(calc(7, 3));
-console.log(calc(7, 13));
-
-function ret() {
-    let num = 50;
-
-    // какой-то код
-
-    return num;
-}
-const anotherNum = ret();
-console.log(anotherNum);
-
-
-const logger = function() {
-    console.log('Hello');
-};
-logger();
 
 const calc2 = (a, b) => a + b;
+console.log(calc2(1, 2));
