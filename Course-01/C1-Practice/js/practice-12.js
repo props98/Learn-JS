@@ -23,3 +23,19 @@
 Проверить, чтобы все работало без ошибок в консоли */
 
 
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+const personalMovieDB = {
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
+};
+
+const lastWatchMovie = prompt('Один из последних просмотренных фильмов?', '');
+const rateFilm = prompt('На сколько оцените его?', '');
+
+personalMovieDB.movies[lastWatchMovie] = rateFilm;
+
+console.log(personalMovieDB);
