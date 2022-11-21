@@ -30,6 +30,11 @@ console.log(ans.match(reg));
 const str = 'My name is R2D2';
 console.log(str.match(/\w\d\w\d/i));
 
+console.log(str.match(/\D/ig));
+// Обратные классы
+// \D - Поиск не чискл
+// \W - Поиск не букв
+
 // console.log(ans.search(reg)); // 1 - порядковый номер буквы в имени
 // console.log(ans.match(reg));
 
