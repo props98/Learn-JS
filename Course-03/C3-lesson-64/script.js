@@ -4,18 +4,15 @@
 
 // 1.
 // Установка ключа и значения number: 5
+// У LocalStorage есть лимит в 5мб
+                    //ключ     значение
 // localStorage.setItem('number', 5);
+// localStorage.setItem('neo', 1);
 
-// // 2.
-// // Получение данных из Local Storage
-// console.log(localStorage.getItem('number'));
+// localStorage.removeItem('neo'); // удаление
+// localStorage.clear(); // полная очистка
 
-// // 3.
-// // Удаление ключа из Local Storage по названию
-// localStorage.removeItem('number');
-
-// // .4
-// localStorage.clear();
+// console.log(localStorage.getItem('neo')); // null
 
 const checkbox = document.querySelector('#checkbox'),
       form = document.querySelector('form'),
@@ -23,10 +20,10 @@ const checkbox = document.querySelector('#checkbox'),
 
 if (localStorage.getItem('isChecked')) {
   checkbox.checked = true;
-};
+} 
 
 if (localStorage.getItem('bg') === 'changed') {
-  localStorage.setItem('isChecked', true);
+  form.style.backgroundColor = 'tomato';
 }
 
 checkbox.addEventListener('change', () => {
@@ -36,19 +33,22 @@ checkbox.addEventListener('change', () => {
 change.addEventListener('click', () => {
   if (localStorage.getItem('bg') === 'changed') {
     localStorage.removeItem('bg');
-    form.style.backgroundColor = 'lightgrey';
+    form.style.backgroundColor = '#fff';
   } else {
     localStorage.setItem('bg', 'changed');
-    form.style.backgroundColor = 'red';
+    form.style.backgroundColor = 'tomato';
   }
 });
 
-const persone = {
+// Создаем объект
+const person = {
   name: 'Neo',
   age: 25
-}
+};
 
-// const serializedPersone = JSON.stringify(persone);
-localStorage.setItem('neo', persone);
-
-console.log(localStorage.getItem('neo'));
+// Превращаем объект в JSON формат и записываем в новую переменую
+const serialezedPerson = JSON.stringify(person);
+// Сохраняем в Local storage
+localStorage.setItem('neo', serialezedPerson);
+// Выводим как обычный объект из locsl Storage из JSON формата
+console.log(JSON.parse(localStorage.getItem('neo')));
