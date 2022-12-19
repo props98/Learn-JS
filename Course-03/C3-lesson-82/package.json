@@ -1,0 +1,14 @@
+{
+  "name": "c3-lesson-82",
+  "version": "1.0.0",
+  "description": "Учебный проект",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tiny-slider": "^2.9.4"
+  }
+}
