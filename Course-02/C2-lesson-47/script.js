@@ -3,21 +3,24 @@
 //* Classes -  Классы ES6
 // Синктатический сахар
 
+// 1. Помогает для шаблонизации
+// 2. Название класса всекда начинаеться с большой буквы
+
 // Концепция
 class Rectangle {
-  constructor(height, width) {
-    this.height = height;
+  constructor(width, height) { // Создание экземпляра класса
     this.width = width;
+    this.height = height;
   }
 
-  calcArea() {
-    return this.height * this.width;
-  }
+  caclArea() { // Создание методов класса - Имя метода без function и :
+    return this.width * this.height;
+  } // в конце точку с запятой не ставят
 }
 
-class ColoredRectangleWithText extends Rectangle {
-  constructor(height, width, text, bgColor) {
-    super(height, width); //! Вызывает свойства и методы сконструктор родителя
+class ColoredRectangleWithText extends Rectangle { // Наследуемый класс от «Rectangle»
+  constructor (width, height, text, bgColor) {
+    super(width, height); // Чтобв не копировать свойства и сделать их наследуемыми / всегда первой строчкой
     this.text = text;
     this.bgColor = bgColor;
   }
@@ -27,14 +30,12 @@ class ColoredRectangleWithText extends Rectangle {
   }
 }
 
-// Экземпляры
-// const square = new Rectangle(10, 10);
-// const long = new Rectangle(5, 15);
-
-// console.log(square.calcArea());
-// console.log(long.calcArea());
-
-const div = new ColoredRectangleWithText(25, 10, 'Hello', 'tomato');
-
+const div = new ColoredRectangleWithText(25, 10, 'Hello', 'Tomato');
 div.showMyProps();
-console.log(div.calcArea());
+console.log(div.caclArea());
+
+const square = new Rectangle(10, 20);
+const long = new Rectangle(30, 5);
+
+console.log(square.caclArea()); // Вызываем метод класса square
+console.log(long.caclArea()); // Вызываем метод класса square

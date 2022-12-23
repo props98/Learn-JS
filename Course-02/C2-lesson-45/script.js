@@ -2,27 +2,34 @@
 
 //* Функции конструкторы
 
+// Старый вид записи
+// const num = new Number(3);
+// console.log(num);
+
 function User(name, id) {
   this.name = name;
   this.id = id;
   this.human = true;
-  this.hello = function() {
+  this.hello = function () {
     console.log(`Hello ${this.name}`);
   };
 }
 
-// Добавление метода или свойства через «prototype» если нет доступа к конструктору
+// Метод «Prototype»
+// Будет прототипно наследоваться, и будет у всех потомков после него
 User.prototype.exit = function() {
-  console.log(`User ${this.name} left`);
-}
+  console.log(`User ${this.name} left!`);
+};
 
-const neo = new User('Neo', 25);
-const jhon = new User('Jhon', 40);
+const ivan = new User('Ivan', 28);
+const alex = new User('Alex', 20);
 
-neo.exit();
+ivan.exit();
 
-neo.hello();
-jhon.hello();
+console.log(ivan);
+console.log(alex);
 
-console.log(neo);
-console.log(jhon);
+ivan.hello();
+alex.hello();
+
+
