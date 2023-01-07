@@ -1,36 +1,37 @@
 'use strict';
 
-//* Передача по ссылке или значению / «Spread - оператор»
-
+//* Передача по ссылке или значению / «Spread - оператор» *//
 let a = 5,
     b = a;
 
-b = b + 5
-console.log(b); //b = 5 + 5
-console.log(a); //a = 5
+b = b + 5;
 
+console.log(b); // 10
+console.log(a); // 5
 
 const obj = {
   a: 5,
   b: 1
 };
 
-// const copyObj = obj; //! Передаем значение по ссылке - ссылка на объект
+const copy = obj; // ссылка на сущ. объект
+copy.a = 10;
 
-// copyObj.a = 10; //a = 10
-// console.log(copyObj); //a = 10
-// console.log(obj); //a = 10
+console.log(copy);
+console.log(obj);
 
-
-// Copy object
 //* 1. Клонирование обекта только первого уровня с помощью цикла «for in»
+// Поверхностная копия объекта
 function copy(mainObj) {
   let objCopy = {};
+
+  let key;
   for (key in mainObj) {
     objCopy[key] = mainObj[key];
   }
+
   return objCopy;
-}
+};
 
 const numbers = {
   a: 2,
@@ -42,66 +43,63 @@ const numbers = {
 };
 
 // const newNumbers = copy(numbers);
-
-// newNumbers.a = 100;
+// newNumbers.a = 10;
 // newNumbers.c.x = 100;
-// console.log(numbers);
+
 // console.log(newNumbers);
+// console.log(numbers);
 
 //* 2. Объединение двух объектов «Object.assign()»
 //  Получение независомой поверхостной копии объекта
-
 const add = {
-  d: 20,
-  e: 50
+  d: 17,
+  e: 20
 };
 
-// console.log(Object.assign(numbers, add));
-
-// Копия объекта
 const clone = Object.assign({}, add);
 clone.d = 200;
-// console.log(add);
-// console.log(clone); // Поверхностная копия объекта
+console.log(add);
+console.log(clone);
 
-//*  Поверхостная копия массива
-
+//*  Поверхостная копия массива методом «slice()»
 const oldArray = ['a', 'b', 'c'];
-// const newArray = oldArray; // Ссылка на массив
-const newArray = oldArray.slice(); // Копия массива без привязки ссылки
+const newArray = oldArray.slice();
 
-newArray[1] = "Hello";
+newArray[1] = 'Hello!';
 console.log(newArray);
 console.log(oldArray);
 
-//*  ES6  Spread операвтор разворота - разварачивает массивы
+
+// Передача массива ввиде аргументов с помощью «Spread» -> «Oператор Разварота ... »
 const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'lifejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'faceboook'];
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook']; // Оператор разворота
 
 console.log(internet);
 
-// Передача массива ввиде аргументов с помощью Spread оператора
+//! С помощью Spread оператора перада аргументов в функцию по отдельности не массивом
 function log(a, b, c) {
   console.log(a);
   console.log(b);
   console.log(c);
-}
-
-const num = [2, 5, 7];
-log(...num);
-
-const array = ['a', 'b'];
-const newAarray = [...array]; // Новая копия массива
-
-// Копия объекта с помощью Spread оператора
-const q = {
-  one: 1,
-  two: 2,
-  three: 3
 };
 
-const newObj = {...q};
-newObj.two = 22;
+const num = [2, 4, 5];
+
+log(...num);
+
+// Поверхностная копия при помощи Spread оператора
+const array = ['a', 'b'];
+const newAarray = [...array];
+console.log(array);
+newAarray[0] = 'Hello';
+console.log(newAarray);
+
+const q = {
+  one: 1,
+  two: 2
+};
+const newQ = {...q};
 console.log(q);
-console.log(newObj);
+newQ.one = 'one'
+console.log(newQ);

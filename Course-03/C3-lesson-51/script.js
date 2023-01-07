@@ -1,35 +1,36 @@
 'use strict';
 
 //* JSON формат передачи данных
-// JSON - Java Script Object Notation
+//* JSON - Java Script Object Notation
 //* Глубокое клонирование объектов
 
 const person = {
   name: 'Neo',
-  tel: '+7555555555'
+  tel: '+79995555555'
 };
+
 
 // Изменяем обычный объект в данные JSON методом «stringify()»
 // Выходит объект с двойными ковычками
-// console.log(JSON.stringify(person));
+console.log(JSON.stringify(person));
 
 // Изменяем полученный JSON файл в обычный объект методом «parse()»
 console.log(JSON.parse(JSON.stringify(person)));
 
-
-// Deep Clone
-const person2 = {
-  name: 'Jhon',
-  tel: '+73333333',
+//* Глубокое клонирование объекта
+const deepObjPerson = {
+  name: 'Trinity',
+  tel: '+75555555',
   parents: {
-    mom: 'Marry',
-    dad: 'Mike'
-  } 
+    captain: 'Morphius',
+    friend: 'Dozer'
+  }
 };
 
-const clone = JSON.parse(JSON.stringify(person2));
+const clone = JSON.parse(JSON.stringify(deepObjPerson));
+// console.log(clone);
 
-clone.parents.mom = 'Diana';
-
-console.log(person2);
+clone.parents.friend = 'rabbit'
 console.log(clone);
+
+console.log(deepObjPerson);
