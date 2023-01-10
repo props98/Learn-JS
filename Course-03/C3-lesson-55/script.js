@@ -6,18 +6,33 @@
 // Обещания
 console.log('Запрос данных...');
 
-const req = new Promise((resolve, reject) => {
+setTimeout(() => {
+  console.log('Подготовка данных...');
+
+  const product = {
+    name: 'TV',
+    price: 5000
+  };
+
+  setTimeout(() => {
+    product.status = 'order';
+    console.log(product);
+  }, 3000);
+
+}, 2000)
+
+const req = new Promise(function(resolve, reject) {
   setTimeout(() => {
     console.log('Подготовка данных...');
-  
+
     const product = {
       name: 'TV',
-      price: 2000,
+      price: 5000
     };
-  
+
     resolve(product);
 
-  }, 2000);
+  }, 2000)
 });
 
 req.then((product) => {
@@ -27,35 +42,36 @@ req.then((product) => {
       resolve(product);
     }, 2000);
   });
-}).then((data) => {
+}).then(data => {
   data.modify = true;
   return data;
 }).then((data) => {
   console.log(data);
 }).catch(() => {
-  console.error('Произошла ошибка');
+  console.error('Error!');
 }).finally(() => {
   console.log('Finally');
 });
 
+// const test = time => {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve();
+//     }, time)
+//   })
+// };
 
-const test = time => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, time);
-  });
-};
+// test(1000).then(() => {
+//   console.log('1000 ms');
+// })
+// test(2000).then(() => {
+//   console.log('2000 ms');
+// })
 
-// test(1000).then(() => console.log('1000ms'));
-// test(2000).then(() => console.log('2000ms'));
-
-//* Метод Промиса «all» - Ждет когда все промисы выполняться
-// Promise.all([test(1000), test(2000)]).then(() => {
+// Promise.all([test(1000), test(1000)]).then(() => {
 //   console.log('All');
 // });
-//* Метод Промиса «race» - Ждет когда до первого загруженного промиса
-Promise.race([test(1000), test(2000)]).then(() => {
-  console.log('All');
-});
 
+// Promise.race([test(1000), test(1000)]).then(() => {
+//   console.log('Race');
+// });
