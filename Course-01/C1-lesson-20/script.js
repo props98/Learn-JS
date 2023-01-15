@@ -2,79 +2,69 @@
 
 //* Objects, деструктуризация объектов
 
-// const obj = new Object(); //! Вариант возможен, но не используеться
+//! Вариант возможен, но не используеться
+// const obj = new Object(); 
 
 //* Созданный метод объекта
 const options = {
   name: 'test',
-  width: 1080,
-  height: 1920,
+  width: 1920,
+  height: 1080,
   colors: {
     border: 'black',
-    background: 'red',
-    material: {
-      color: 'yellow',
-      size: 200,
-      counter: 2,
-    }
+    bg: 'red'
   },
   makeTest: function() {
-    console.log('My first Method');
+    console.log('Hello!');
   }
 };
-options.makeTest();
-
-// console.log(options.name);
 
 //* Деструктуризация объекта
-// console.log(options['colors']['border']); // заменить деструктуризацией
-const {border, background} = options.colors;
-console.log(background);
+const {name, width, height} = options;
+const {border, bg} = options.colors;
 
-const {color, size, counter} = options.colors.material;
-console.log(color, size, counter);
+console.log(name);
+console.log(width);
+console.log(bg);
 
+options.makeTest(); // Вызов метода объекта
+
+// console.log(options.name); // Вызов свойства объекта
+
+//* Узнаем сколько свойств у объекта
+//! Старый и не удобный метод подсчета свойств в объекте
+
+//! Удаление свойства объекта при помощи «delete»
+// delete options.name; // Удаление свойства объекта
+// console.log(options);
+
+// for (let key in options) { // Перебор свойств объекта «for in»
+//   if (typeof(options[key]) === 'object') { 
+//     for (let i in options[key]) {
+//       console.log(`Свойство: ${i} имеет значение: ${options[key][i]}`);
+//     }
+//   } else {
+//     console.log(`Свойство: ${key} имеет значение: ${options[key]}`);
+//   }
+// }
+
+//! Перебор вложенных объектов «for (let item in object)»
+// let counter = 0;
+// for (let key in options) { // Подсчет свойств объекта «for in»
+//   if (typeof(options[key]) === 'object') { 
+//     for (let i in options[key]) {
+//       console.log(`Свойство: ${i} имеет значение: ${options[key][i]}`);
+//       // counter++
+//     }
+//   } else {
+//     console.log(`Свойство: ${key} имеет значение: ${options[key]}`);
+//     counter++
+//   }
+// }
+// console.log(counter);
 
 //* Метод //* Делаем из свойств объекта массив «Object.keys()»
 console.log(Object.keys(options));
 
 //* Делаем подсчет массива свойством «length»
 console.log(Object.keys(options).length);
-
-
-//! Удаление свойства объекта при помощи «delete»
-// delete options.name; // удалили свойство - можно циклом
-// console.log(options); 
-
-//! Перебор вложенных объектов «for (let item in object)»
-// for (let key in options) { 
-//   if (typeof(options[key]) === 'object') {
-//     for (let i in options[key]) {
-//       console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-//     }
-//   } else {
-//     console.log(`Свойство ${key} имеет значение ${options[key]}`);
-//   }
-// }
-
-//* Узнаем сколько свойств у объекта
-//! Старый и не удобный метод подсчета свойств в объекте
-let count = 0;
-for (let key in options) { 
-  // if (typeof(options[key]) === 'object') {
-  //   for (let i in options[key]) {
-  //     console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-  //   }
-  // } else {
-  //   console.log(`Свойство ${key} имеет значение ${options[key]}`);
-    count++;
-  // }
-}
-console.log(count);
-
-
-
-
-
-
-
