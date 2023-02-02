@@ -8,25 +8,22 @@
 
 // Концепция
 class Rectangle {
-  constructor(height, width) {
-    this.height = height;
+  constructor(width, height) {
     this.width = width;
+    this.height = height;
   }
 
   calcArea() {
-    return this.height * this.width;
+    return this.width * this.height;
   }
+
 }
 
-// const square = new Rectangle(10, 10);
-// console.log(square.calcArea());
-// const long  = new Rectangle(10, 200);
-// console.log(long.calcArea());
-
-// Наследование класса
+// Наследуемость классов от «Rectangle»
 class ColoredRectangleWithText extends Rectangle {
-  constructor(height, width, text, bgColor) {
-    super(height, width); // наследование 
+  constructor(width, height, text, bgColor) {
+    super(width, height); // Вызов свойств от родителя
+
     this.text = text;
     this.bgColor = bgColor;
   }
@@ -35,6 +32,13 @@ class ColoredRectangleWithText extends Rectangle {
     console.log(`Text: ${this.text}, color: ${this.bgColor}`);
   }
 }
+
+
+// Экземпляры объекта
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(50, 10);
+// console.log(square.calcArea());
+// console.log(long.calcArea());
 
 const div = new ColoredRectangleWithText(25, 10, 'Hello', 'tomato');
 div.showMyProps();
