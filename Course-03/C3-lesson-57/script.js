@@ -2,55 +2,54 @@
 
 //* Методы перебора массива
 
-//* method «Filter»
-const names = ['Alexia', 'John', 'Neo', 'Moana', 'Konstantin'];
-const shortNames = names.filter( (name) => {
-  return name.length < 5;
+//* Метод «Filter» - Возвращает новый отфильтрованный массив
+const names = ['Neo', 'Trinity', 'Morphius', 'Alexandria'];
+
+const shortNames = names.filter(function(name) {
+  return name.length < 4;
 });
 
 console.log(shortNames);
 
-//* method «Map»
-const answers = ['IvAn', 'AnnA', 'HELlo'];
-const result = answers.map( item => {
-  return item.toLowerCase();
-});
+//* Метод «Map» - Трансформирующий метод
+const answers =  ['NeO', 'tRinIty'];
+
+const result = answers.map(item => item.toLowerCase());
 
 console.log(result);
 
-//! Не стоит так делать
-let answers2 = ['IvAn', 'AnnA', 'HELlo'];
-answers2 = answers2.map( item => item.toLowerCase());
-console.log(answers2);
+//* Методы «Every / Some» - возвращает булиновое значение true & false
+const some = [4, 3, 3];
 
-//* method «Every / Some» - выдает true & false
-const some = [4, 2, 4];
-// console.log(some.some(item => typeof(item) === 'number')); // проверяет один элемент
-console.log(some.every(item => typeof(item) === 'number')); // проверяет все элементы по условию
+// console.log(some.some(item => typeof(item) === 'number')); // SOME - есть хотя бы один элемент подходит под условя
+console.log(some.every(item => typeof(item) === 'number')); // EVERY -  если все элементы подходят под условия
 
-//* method «Reduce»
-const arr = [4, 5, 1, 2, 3, 6];
-const result2 = arr.reduce((sum, current) => {
-  return sum + current
-}, 3); // Принимает аргумени начального числа
-console.log(result2);
+//* method «Reduce» - схлопование массива в единое целое
+const arr = [3, 4, 5, 6, 1, 2, 8];
+            // 0   3
+            // 3   4 -> начало
+            // 7   5
+            // 12  6 ...etc
 
-const str = ['apple', 'pear', 'plum'];
-const resStr = str.reduce((sum, current) => `${sum}, ${current}`);
-console.log(resStr);
+// const res = arr.reduce((sum, current) => sum + current); // 29
+const res = arr.reduce((sum, current) => sum + current, 1); // 30 - Второй аргумент + «1»
+console.log(res);
 
+const arrWords = ['apple', 'orange', 'banana'];
+
+const res2 = arrWords.reduce((sum, current) => `${sum}, ${current}`);
+console.log(res2);
 
 //* Example /////////////
-
 const obj = {
-  ivan: 'person',
-  ann: 'person',
-  dog: 'animal',
-  cat: 'animal'
+  neo: 'person',
+  trinity: 'person',
+  cat: 'animal',
+  dog: 'animal'
 };
 
-const newArr = Object.entries(obj)
-.filter(item => item[1] === 'person')
-.map(item => item[0]);
+const newArr = Object.entries(obj) // Создание матрицы из массивов
+  .filter(item => item[1] === 'person') // Перебор вложенного массива по второму индексу «person»
+  .map(item => item[0]); // Перебор массива и возвращение первого индекса
 
 console.log(newArr);
