@@ -2,37 +2,27 @@
 
 //* Сallback функция
 
-function first(lang, callback) {
-  // Do something
+function first() {
+  // do something
   setTimeout(function() {
-    console.log(`${lang} function`);
-  }, 500); // Задержка в пол секунды
-  callback();
+    console.log(1);
+  }, 500);
 }
 
-// function second() {
-//   console.log('second function');
-// }
+function second() {
+  console.log(2);
+}
 
-// first();
-// second();
+first();
+second();
 
-
-// Пример
-first('first', () => {
-  console.log('second function');
-});
-
-
- 
 function learnJS(lang, callback) {
-  console.log(`I learn ${lang}`);
+  console.log(`I learn: ${lang}`);
   callback();
 }
 
 function done() {
-  console.log('I\'m callback function');
+  console.log('I pass this lesson!');
 }
 
 learnJS('JavaScript', done);
-
