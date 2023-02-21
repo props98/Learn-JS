@@ -2,13 +2,14 @@
 
 //* Интерполяция
 
-const category = 'toys';
+const catergory = 'toys';
 
-//! старый образец записи
-//? console.log('https://someurl.com/' + category + '/' + 4);
+//! старый образец записи - конкотенация строк
+console.log('https://someurl.com/' + catergory + '/' + '5');
 
 //! Интерполяция 
-console.log(`https://someurl.com${category}/5`);
+console.log(`https://someurl.com/${catergory}/10`);
 
-const user = 'Ivan';
-alert(`Hello, ${user}`);
+// Пример.....
+const user = 'Neo';
+console.log(`Hello, ${user}`);
