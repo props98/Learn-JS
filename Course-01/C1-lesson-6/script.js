@@ -1,33 +1,37 @@
 "use strict";
 
 //* Класификация типов данных
+// 8 типов данных
 
-let number = 4.6;
+let number = 4; // Number
 
-console.log(-4/0);
-console.log('string' * 9);
+console.log(-4 / 0); // -Infinity
+console.log('string' * 9); // NaN
 
-const person = 'Alex';
-console.log(person);
+const person1 = 'Neo'; // String
+const person2 = `Trinity`; // String
 
-const bool = true;
+const bool = true; // Boolean «true - Yes/ false - No»
 
-//! Null
-// console.log(someThing); 
+//* Null
+console.log(something); // ReferenceError - Ошибка ссылочного типа
 
-//! Udefined (холодильник)
+//* Udefined (холодильник)
 let und;
-console.log(und);
+console.log(und); // undefined
 
-//! Object
+//* Object
 const obj = {
-  name: 'Alex',
+  name: 'Neo',
   age: 25,
-  isMarried: false
+  human: true
 };
 
-// console.log(obj['name']);
+console.log(typeof(obj.name));
 console.log(obj.name);
+console.log(typeof(obj['age']));
+console.log(obj['age']);
 
-let arr = ['plum.png', 4, 'orange.jpg', 'apple.bmt', {}, []];
-console.log(arr[2]);
+//* Array - нумерация с нуля
+let arr = ['apple', 'orange', 'banana', 5, {}, []];
+console.log(arr[0]);

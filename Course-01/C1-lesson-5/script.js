@@ -1,38 +1,30 @@
-"use strict";
+'use strict'; // Деректива современого JS
 
 //* Переменные и строгий режим
 
-let number = 1;
-const leftBorderWidth = 3;
+// let & const
+// Особенность видимости и доступа
+let number = 5; // Изменяемая переменная
+let Number = 5; // Другая переменная - важен регистр
 
-//! Правила написания кода с пробелами и переносами ////////////////////////////
-function pow(x, y) {
-  var result = 1;
-
-  for (var i = 0; i < n; i++) {
-    result *= x;
-  }
-
-  return result;
-}
-
-let x = promt('x?', "");
-let y = promt('n?', "");
-
-if (n < 0)  {
-  alert('Степень ' + n + ' не поддерживается, введите целую степень, большую 0');
-} else {
-  alert( paw(x, n) );
-}
-//! Правила написания кода с пробелами и переносами ////////////////////////////
-
+const leftBorderWidth = 1; // Константа нельзя изменять - camelCase
 
 number = 10;
+console.log(number);
 
-// const obj = {
-//     a: 50
-// };
-// obj.a = 10;
-// console.log(obj);
+const obj = {
+  a: 3,
+  b: 40
+}
 
-var name = 'Ivan';
+obj.a = 10;
+console.log(obj);
+
+
+//! Устарешвая запись переменных не использовать
+// var
+// ХОЙСТИНГ -> Существует до того как было объявлена - undefined
+console.log(name);
+var name = 'Neo';
+
+//! Правила написания кода с пробелами и переносами ////////////////////////////
