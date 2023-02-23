@@ -2,46 +2,52 @@
 
 //* Условия
 
-if (0) {
-  console.log('Ok');
+// Приводит условия к булиновому типу
+if (4 == 4) {  // Boolean - true
+  console.log('OK!');
+}
+
+if (4 == 9) { // Boolean - false
+  console.log('OK!');
 } else {
-  console.error('error');
+  console.log('No!');
 }
 
 const num = 50;
+
 if (num < 49) {
-  console.log('Error');
+  console.log('Error!');
 } else if (num > 100) {
-  console.log('To much');
+  console.log('To much!');
 } else {
-  console.log('Correct');
+  console.log('Ok!');
 }
 
-//* Тернарный оператор - участвуют три аргумента
+//! Тернарный оператор - участвуют три аргумента
 //* Сначала условие если не первое тогда второе
-console.log(10 > 4 ? 1 : 2);
-let num2 = 50;
-(num2 == 50) ? console.log('Correct') : console.log('Error');
+const num2 = 50;
+(num2 === 50) ? console.log('Ok!') : console.log('Error!');
 
 //* Бинарный - участвуют два аргумента
-4 + 4
+// 4 + 4
 
 //* Унарный плюс - Участвует один аргумент
-+'4';
+// +'4'
 
 //* Switch
-const num3 = '50';
+const num3 = 100;
 switch (num3) {
-  case '49':
-    console.log('Error');
+  case 49: 
+    console.log('Error 49');
     break;
-  case '50':
-    console.log('Correct');
+  case 100:
+    console.log('Error 100');
     break;
-  case '100':
-    console.log('Error');
+  case 50:
+    console.log('Ok!');
     break;
   default:
-    console.log('No no no');
+    console.log('Default');
     break;
 }
+
