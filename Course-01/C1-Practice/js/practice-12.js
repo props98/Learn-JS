@@ -22,20 +22,25 @@
 
 Проверить, чтобы все работало без ошибок в консоли */
 
-
+// #1
 const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
+// #2
 const personalMovieDB = {
   count: numberOfFilms,
   movies: {},
   actors: {},
   genres: [],
   privat: false
-};
+}
 
-const lastWatchMovie = prompt('Один из последних просмотренных фильмов?', '');
-const rateFilm = prompt('На сколько оцените его?', '');
+// #3
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+      b = prompt('На сколько оцените его?', ''),
+      c = prompt('Один из последних просмотренных фильмов?', ''),
+      d = prompt('На сколько оцените его?', '');
 
-personalMovieDB.movies[lastWatchMovie] = rateFilm;
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
