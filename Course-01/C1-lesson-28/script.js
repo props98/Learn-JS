@@ -1,30 +1,34 @@
 'use strict';
 
 //* Получение элементов со страницы
-
 const box = document.getElementById('box');
-console.log(box);
+// console.log(box);
 
 const btns = document.getElementsByTagName('button');
-console.log(btns);
-btns[0].style.background = 'purple';
+// console.log(btns);
+// console.log(btns[1]);
+
+const span = document.getElementsByTagName('span');
+// console.log(span);
 
 const circles = document.getElementsByClassName('circle');
-console.log(circles);
-
+// console.log(circles);
 
 
 //* Современные методы получения элементов со страницы
-
 const hearts = document.querySelectorAll('.heart');
 console.log(hearts);
-hearts.forEach(heart => {
-    console.log(heart);
+
+hearts.forEach(item => {
+  console.log(item);
 });
 
-// Получение первого элемента со страницы
-const oneHeart = document.querySelector('.heart');
-console.log(oneHeart);
+//! Получает только самый первый элемент со страницы
+const firstHeart = document.querySelector('.heart');
+console.log(firstHeart);
 
-const btn = document.querySelector('button');
-console.log(btn);
+const firstDiv = document.querySelector('div');
+console.log(firstDiv);
+
+
+// Получение первого элемента со страницы
