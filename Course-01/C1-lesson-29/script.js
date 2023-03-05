@@ -1,71 +1,68 @@
 "use strict";
 
 //* Действия с элементами на странице
-
 const box = document.getElementById('box'),
       btns = document.getElementsByTagName('button'),
       circles = document.getElementsByClassName('circle'),
       wrapper = document.querySelector('.wrapper'),
-      hearts = wrapper.querySelectorAll('.heart'),
-      oneHeart = wrapper.querySelector('.heart');
+      hearts = wrapper.querySelectorAll('.heart'), // поиск в wrapper
+      oneHeart = wrapper.querySelector('.heart'); // поиск в wrapper
 
-box.style.backgroundColor = 'lightgreen';
-box.style.width = '500px';
+console.dir(box);
+box.style.backgroundColor = 'purple';
+box.style.width = '50vw';
 
-btns[1].style.borderRadius = '100%';
+let borderRadius = 5;
+box.style.cssText = `background-color: lightblue; border-radius: ${borderRadius}%`;
 
-circles[0].style.backgroundColor = 'tomato';
+btns[1].style.backgroundColor = 'tomato';
 
-// CSS text //////////////*
-// btns[3].style.cssText = 'background-color: lightgreen; width: 150px';
-let num = 150;
-btns[3].style.cssText = `background-color: lightgreen; width: ${num}px`;
+console.log(circles);
+for (let i = 0; i < circles.length; i++) {
+  circles[i].style.backgroundColor = 'yellow';
+}
+circles[0].style.backgroundColor = 'lightgreen';
 
-// for (let i = 0; i < btns.length; i++) {
-//     console.log(btns[i]);
-//     btns[i].style.cssText = `background-color: yellow`;
-// }
-
-hearts.forEach(heart => {
-    // console.log(heart);
-    heart.style.cssText = `background-color: lightgreen`;
+hearts.forEach(item => {
+  item.style.backgroundColor = 'beige';
 });
 
-
-// Создание элементов //////////////*
+//* Создание элементов
 const div = document.createElement('div');
-// const text = document.createTextNode('Some NODE'); // Используеться редко
+// const text = document.createTextNode('Hello, Neo!'); //! Редко используется
 
-// Добавление класса элементу //////////////*
+
+//* Добавление класса элементу
 div.classList.add('black');
 
-// Размещение элемента
-wrapper.prepend(div); // в начале 
-// wrapper.append(div); // в конце
-
-// hearts[0].before(div); // после выбраного элемента
-// hearts[0].after(div); // перед выбранным элементом
-
-// circles[0].remove(); // удаление выбранного элемента
-
-hearts[0].replaceWith(circles[0]); // Замена элементов
-
+//* Размещение элемента
+// document.body.append(div); // В конце перед закрывающим тегом body
+// wrapper.append(div); // В конце wrapper
 
 //! Старые команды - могут пригодиться
+// wrapper.prepend(div); // В начале wrapper
 // wrapper.appendChild(div);
 // wrapper.insertBefore(div, hearts[1]);
 // wrapper.removeChild(hearts[1]);
 // wrapper.replaceChild(circles[0], hearts[0]);
 
+//! Новые команды
+wrapper.before(div);
+// circles[0].remove(); // Удаление элемента
+// hearts[0].after(div); // После первого элемента в wrapper
+// hearts[0].replaceWith(btns[4]); // Замена элементов
 
-// Добавление текста и HTML элемента //////////////*
-div.innerHTML = '<h1>Hello</h1>'; // Работает с HTML структурой
-// div.textContent = '<h1>Hello</h1>'; // Работает только с текстом
+
+//* Добавление текста и HTML элемента
+// div.innerHTML = 'Hello, Neo!';
+div.innerHTML = '<h1>Hello, Neo!</h1>';
+// div.textContent = 'Hello!'
+
 
 //* Расположение после или до выбранного элемента
-// div.insertAdjacentHTML('beforebegin', '<h2>Helllllo</h2>'); // Перед элемнтом div
-// div.insertAdjacentHTML('afterend', '<h2>Helllllo</h2>'); // После элемета div
+div.insertAdjacentHTML('afterend', '<h2>Hello</h2>');
+//! afterbegin - внутри элемента в начале
+// afterend - после элемента
+// beforebegin - перед элементом
+//! beforeend - внутри элемента в конце
 
-//* Расположение после или до вложенного элемента
-// div.insertAdjacentHTML('afterbegin', '<h2>Helllllo</h2>');  // Перед вложенным элементом h1
-div.insertAdjacentHTML('beforeend', '<h2>Helllllo</h2>'); // После вложенного элемента h1
