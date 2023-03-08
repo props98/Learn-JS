@@ -2,44 +2,52 @@
 
 //* События и их обработчики
 
-const btn = document.querySelector('button');
-const overlay = document.querySelector('.overlay');
+const btn = document.querySelector('button'),
+      overlay = document.querySelector('.overlay');
 
-// btn.onclick = function() { //! Старый способ
-//   alert('click');          //! Уже не исаользуют
+//! Лучше Не использовать - если свойство повторяеться, 
+//! выполняеться последний обработчик,
+//! нельзя удалить обработчик.
+// btn.onclick = function() {
+//   console.log('JS script onclick');
+// }
+
+// btn.addEventListener('click', () => {
+//   console.log('addEventListener click 1');
+// });
+
+// btn.addEventListener('click', () => {
+//   console.log('addEventListener click 2');
+// });
+
+// btn.addEventListener('mouseenter', (evt) => {
+//   console.log(evt.target);
+//   evt.target.remove();
+// });
+
+// let i = 0;
+// const deleteElem = (evt) => {
+//   console.log(evt.target);
+//   console.log(evt.type);
+//   // i++;
+//   // if (i == 1) {
+//   //   btn.removeEventListener('click', deleteElem);
+//   // }
 // };
 
-// btn.onclick = function() { //! Старый способ
-//   alert('Second click');   //! Второй клик не сработает
-// };
-
-let i = 0;
-
-const deleteElement = (evt) => {
-      console.log(evt.target);
-      // console.log(evt.currentTarget); // Всплытие событий от вложенного элемента к родителю
-      // console.log(evt.type);
-      // evt.target.remove();
-      // i++;
-      // if (i == 2) {
-      //   btn.removeEventListener('click', deleteElement);
-      // }
-    }
+// btn.addEventListener('click', deleteElem);
+// overlay.addEventListener('click', deleteElem);
 
 
-// btn.addEventListener('click', deleteElement);
-// overlay.addEventListener('click', deleteElement);
-
-const link = document.querySelector('a');
-
+// const link = document.querySelector('a');
 // link.addEventListener('click', (evt) => {
-//   evt.preventDefault(); //Отмена радного события
-
+//   evt.preventDefault();
 //   console.log(evt.target);
 // });
 
 const btns = document.querySelectorAll('button');
-
 btns.forEach(btn => {
-  btn.addEventListener('click', deleteElement, {once: true})
-});
+  btn.addEventListener('click', (evt) => {
+    console.log(evt.target);
+  })
+})
