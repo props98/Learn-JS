@@ -17,99 +17,102 @@ P.S. Здесь есть несколько вариантов решения з
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-  (function() {
+
+(function() {
 
     //! DataBase
     const movieDB = {
-       movies: [
-           "Логан",
-           "Лига справедливости",
-           "Ла-ла лэнд",
-           "Одержимость",
-           "Скотт Пилигрим против...",
-           "Апполон",
-           "Ямакаси"
-       ]
-   };
-  
-  
-   const promoAdv = document.querySelectorAll('.promo__adv img'),
-         promoBg = document.querySelector('.promo__bg'),
-         genre = promoBg.querySelector('.promo__genre'),
-         movieList = document.querySelector('.promo__interactive-list');
-  
-   const form = document.querySelector('form.add'),
-         addInput = form.querySelector('.adding__input'),
-         checkbox = form.querySelector('[type=checkbox]');
-  
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+      movies: [
+          "Логан",
+          "Лига справедливости",
+          "Ла-ла лэнд",
+          "Одержимость",
+          "Скотт Пилигрим против...",
+          "Апполон",
+          "Ямакаси"
+      ]
+  };
 
-      let newFilm = addInput.value; //! без текстка false
-      const favorite = checkbox.checked;
+  const promoAdv = document.querySelectorAll('.promo__adv img');
+  const promoBg = document.querySelector('.promo__bg'),
+        genre = promoBg.querySelector('.promo__genre');
+  const movieList = document.querySelector('.promo__interactive-list');
+  const form = document.querySelector('.add'),
+        input = form.querySelector('.adding__input'),
+        checkBox = form.querySelector('[type=checkbox]');
 
-      if (newFilm) {
 
-        if (newFilm.length > 10) {
-          newFilm = `${newFilm.substring(0, 11)} ...`;
-        }
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
 
-        if (favorite) {
-          console.log('Добавляем любимый фильм');
-        }
+    let newFilm = input.value;
+    const favorite = checkBox.checked;
 
-        movieDB.movies.push(newFilm);
-        sortArr(movieDB.movies);
-  
-        creatMovieList(movieDB.movies, movieList);
+    if (newFilm) {
+      
+      // Проверяем длину строки и обрезаем после 10 символа
+      if (newFilm.length > 10) {
+        newFilm = `${newFilm.substring(0, 11)} ...`
+      }
+      
+      // Проверяем на чекбокс
+      if (favorite) {
+        console.log('Add new film');
       }
 
-      e.target.reset();
-    });
-  
-    const deleteAdv = (arr) => {
-      arr.forEach(promo => {
-        promo.remove();
-      });
-    };
+      movieDB.movies.push(newFilm);
+      sortArr(movieDB.movies);
 
-    const makeChanges = () => {
-      promoBg.style.background = 'url(img/bg.jpg)';
-      genre.textContent = 'драма';
-    };
-
-    const sortArr = (arr) => {
-      arr.sort();
-    };
-
-    function creatMovieList(films, parent) {
-      parent.innerHTML = '';
-      sortArr(films);
-
-      films.forEach((film, i) => {
-        parent.innerHTML += `
-            <li class="promo__interactive-item">${i + 1}. ${film}
-              <div class="delete"></div>
-            </li>
-          `;
-        });
-
-        document.querySelectorAll('.delete').forEach((btn, i) => {
-          btn.addEventListener('click', () => {
-            btn.parentElement.remove();
-            movieDB.movies.splice(i, 1);
-
-            //! Рекурсия повторная отрисовка списка, не теряеться нумерация 
-            creatMovieList(films, parent);
-          });
-        });
+      createMovieList(movieDB.movies, movieList);
     }
 
-    deleteAdv(promoAdv);
-    makeChanges();
+  });
 
-    creatMovieList(movieDB.movies, movieList);
-  
-  })();
-});
+  // Удаляет рекламные блоки promo
+  const deleteAdv = (arr) => {
+    arr.forEach(promo => {
+      promo.remove();
+    })
+  };
+
+  // Делает изменение фона главного баннера и текста
+  const makeChange = () => {
+    promoBg.style.background = 'url(img/bg.jpg)';
+    genre.textContent = 'драма';
+  };
+
+  // Сортирует массив по алфивиту
+  const sortArr = (arr) => {
+    arr.sort();
+  };
+
+  // Cоздает список фильмов
+  const createMovieList = (films, parent) => {
+    parent.innerHTML = '';
+    sortArr(films);
+
+    films.forEach((film, i) => {
+      parent.innerHTML += `
+        <li class="promo__interactive-item">${i + 1}. ${film}
+          <div class="delete"></div>
+        </li>
+      `;
+    });
+
+    // Делаем удаление при клике на иконку корзины
+    document.querySelectorAll('.delete').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.remove();
+        movieDB.movies.splice(i, 1);
+
+        // Рекурсия, повторная отрисовка списка
+        createMovieList(films, parent);
+      })
+    })
+  };
+
+  deleteAdv(promoAdv);
+  makeChange();
+  createMovieList(movieDB.movies, movieList)
+
+})();
