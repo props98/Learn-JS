@@ -2,54 +2,47 @@
 
 //* Работа с датами
 
-const now = new Date();
-console.log(now);
-
-// передача дата в виде строки
-// const now1 = newDate('1989-03-27');
-
-// метод parse
-// new Date.parse('1989-03-27');
-
-// передача даты числовыми значениями
-// Timestamp - передача милесекундах отсчет с 1979.01.01
+const now1 = new Date(); // Текущая дата
+const now2 = new Date('2011-01-21'); // Переданная дата ввиде строки
+const now3 = new Date(2020, 5, 1, 20); // Переданная дата ввиде чисел
+const now4 = new Date(0); //! «Time stamp - милисекунды» Получение начало отсчета (1970-01-01T00:00:00.000Z)
+// console.log(now4);
 
 //* Получение 
-// const date1 = new Date();
-// console.log(date1.getFullYear());
-// console.log(date1.getMonth());
-// console.log(date1.getDate());
-// console.log(date1.getHours());
-// console.log(date1.getMinutes());
-// console.log(date1.getMilliseconds());
+// console.log(now1.getFullYear()); // Текущиц год
+// console.log(now1.getMonth()); // Текущиц месяц
+// console.log(now1.getDate()); // Текущиц число
+// console.log(now1.getHours()); // Текущиц часы
+// console.log(now1.getMinutes()); // Текущиц минуты
+// console.log(now1.getSeconds()); // Текущиц милисекунды
 
 //* Номер дня недели отсчет -> ВОСКРЕСЕНЬЕ = 0
-// console.log(date1.getDay());
+// console.log(now1.getDay()); // Получение дня недели
 
-//! Часовой пояс UTC
-// console.log(date1.getUTCHours()); // -3 часа
+//! Часовой пояс UTC - Отнимает 3 часа
+// console.log(now1.getUTCHours()); // Текущиц часы
 
 //* Получение разницы В МИНУТАХ между местным часовым поясом и UTC (-180минут)
-// console.log(now.getTimezoneOffset());
+// console.log(now1.getTimezoneOffset());
 
 //* Возвращение TimeStamp с 1979.01.01
-// console.log(now.getTime());
+// console.log(now1.getTime());
+// let time = now1.getTime();
+// const date = new Date(time);
+// console.log(date);
 
 //* Установка времени «SET»
-const dateSet = new Date();
-console.log(dateSet.setHours(18));
-console.log(dateSet.setMinutes(10));
-console.log(dateSet.setSeconds(10));
-console.log(dateSet.setMilliseconds(10));
-console.log(dateSet);
+console.log(now1.setHours(18)); // Установка часов - //! UTC отнимает 3 часа
+console.log(now1);
 
 
-let start = new Date();
+// Аналог banchmark
+let start = new Date(); // Начало отсчета
 
-for (let i = 0; i < 100000; i++) {
-  let some = i ** 3// « ** » сокращение возведение в степень
+for (let i = 0; i < 10000000000; i++) { // Какие-то действия
+  let some = i ** 3;
 }
 
-let end = new Date();
+let end = new Date(); // Конец отсчета
 
-console.log(`Work for: ${end - start}ms`);
+console.log(`Цикл отработал за: ${end - start}ms`);
