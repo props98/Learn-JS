@@ -1,15 +1,14 @@
 'use strict';
 
-//* Оператор «Rest»
+//* Оператор «Rest - ...name в крнце аргументов»
 
-const log = function(a, b, ...rest) { // rest - любое название
+const log = function(a, b, ...rest) {
   console.log(a, b, rest);
 }
-log('a', 'b', 'rest1', 'rest2', 'rest3');
+log('a', 'b', 'option', 'use');
 
 
-function calcOrDouble(number, basis = 2) { // в ES6
-  // basis = basis || 2; // проверка аргумента до ES6
+function calcOrDouble(number, basis = 2) {
   console.log(number * basis);
-}
-calcOrDouble(3);
+};
+calcOrDouble(3, 5);
