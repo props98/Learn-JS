@@ -1,26 +1,28 @@
 'use strict';
 
-//* Local Storage
+//* Технология «Local Storage»
 
-// 1.
-// Установка ключа и значения number: 5
-// У LocalStorage есть лимит в 5мб
-                    //ключ     значение
+// // Создание ключа
+// // Установка ключа и значения number: 5
 // localStorage.setItem('number', 5);
-// localStorage.setItem('neo', 1);
 
-// localStorage.removeItem('neo'); // удаление
-// localStorage.clear(); // полная очистка
+// // Удаление ключа
+// localStorage.removeItem('number');
 
-// console.log(localStorage.getItem('neo')); // null
+// // Получения значения Локального хранилища
+// console.log(localStorage.getItem('number'));
 
-const checkbox = document.querySelector('#checkbox'),
+// // Очищение логального хранилища
+// localStorage.clear();
+
+const checkbox = document.getElementById('checkbox'),
       form = document.querySelector('form'),
       change = document.querySelector('#color');
 
+
 if (localStorage.getItem('isChecked')) {
   checkbox.checked = true;
-} 
+}
 
 if (localStorage.getItem('bg') === 'changed') {
   form.style.backgroundColor = 'tomato';
@@ -33,7 +35,7 @@ checkbox.addEventListener('change', () => {
 change.addEventListener('click', () => {
   if (localStorage.getItem('bg') === 'changed') {
     localStorage.removeItem('bg');
-    form.style.backgroundColor = '#fff';
+    form.style.backgroundColor = 'white';
   } else {
     localStorage.setItem('bg', 'changed');
     form.style.backgroundColor = 'tomato';
@@ -48,7 +50,16 @@ const person = {
 
 // Превращаем объект в JSON формат и записываем в новую переменую
 const serialezedPerson = JSON.stringify(person);
+
 // Сохраняем в Local storage
 localStorage.setItem('neo', serialezedPerson);
+
+// Вывод в формате JSON
+console.log(localStorage.getItem('neo'));
+
 // Выводим как обычный объект из locsl Storage из JSON формата
 console.log(JSON.parse(localStorage.getItem('neo')));
+
+
+
+
