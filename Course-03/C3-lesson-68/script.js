@@ -2,7 +2,7 @@
 
 //* СВОЙСТВА - Акцессоры / Геттры и Cеттеры - Свойства объекта
 
-const persone = {
+const person = {
   name: 'Neo',
   age: 25,
 
@@ -11,10 +11,12 @@ const persone = {
   },
 
   set userAge(num) {
-    this.age = num;
+    this.age = num
   }
 };
 
-console.log(persone.userAge);
-console.log(persone.userAge = 30);
+console.log(person.userAge); // get
+console.log(person.userAge = 35); // set
+
+console.log(person.userAge);
 
