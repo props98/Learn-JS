@@ -6,27 +6,31 @@
 
 const number = 1;
 
-//* Ананимная самовызывающая функция
-// function expression
+//! Ананнимная самовызывающая функция -> Function Expression
 (function() {
-
   let number = 2;
+
   console.log(number);
   console.log(number + 3);
-
 }());
 
 console.log(number);
 
-//* Создание модуля при помощи объектного интерфейса
-const user = (function(){
+//! Экспорт методов и свойств через «Объектный интерфейс»
+const user = (function() {
   const privat = function() {
-    console.log('Private function');
+    console.log('I am privat function!');
+  };
+
+  const helloName = function() {
+    console.log('Hello, Neo!');
   };
 
   return {
-    sayHello: privat
+    sayHello: privat,
+    helloName: helloName
   };
 }());
 
 user.sayHello();
+user.helloName();
