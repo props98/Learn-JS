@@ -2,7 +2,7 @@
 
 function myModule() {
   this.hello = function() {
-    console.log('Hello world!');
+    console.log('Hello,');
   };
 
   this.goodbye = function() {
@@ -11,4 +11,4 @@ function myModule() {
 }
 
 module.exports = myModule;
-
+// export default myModule;
