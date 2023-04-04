@@ -89,25 +89,26 @@ console.clear();
 
 //! Training
 
-class Car {
-  constructor(model, color) {
-    this.model = model;
-    this.color = color;
-  }
+// class Car {
+//   constructor(model, color) {
+//     this.model = model;
+//     this.color = color;
+//   }
 
-  #wheels = 5;
+//   #wheels = 5;
 
-  carInfo() {
-    console.log(`Car: ${this.model}, color: ${this.color}, wheels: ${this.#wheels}`);
-  }
-}
+//   carInfo() {
+//     console.log(`Car: ${this.model}, color: ${this.color}, wheels: ${this.#wheels}`);
+//   }
+// }
 
-const jeep = new Car('Jeep', 'red');
-console.log(jeep);
+// const jeep = new Car('Jeep', 'red');
+// console.log(jeep);
 
-jeep.carInfo();
+// jeep.carInfo();
 
-jeep.wheels = 10;
-jeep.color = 'green';
+// jeep.wheels = 10;
+// jeep.color = 'green';
 
-jeep.carInfo();
+// jeep.carInfo();
+

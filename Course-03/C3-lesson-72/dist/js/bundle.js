@@ -10,21 +10,28 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ sayHi),
+/* harmony export */   "default": () => (/* binding */ sayBye),
 /* harmony export */   "one": () => (/* binding */ one),
+/* harmony export */   "sayHy": () => (/* binding */ sayHy),
 /* harmony export */   "two": () => (/* binding */ two)
 /* harmony export */ });
 
 
-//* Именованный экспорт
+//* Именованный экспорт, обязательно должно быть имя
 let one = 1;
 
 let two = 2;
 
 
-//* Экспорт по умолчанию «default»
-function sayHi() {
-  console.log('Hello');
+// Экспорт функций
+function sayHy() {
+  console.log('Hello!');
+}
+
+//* Экспорт по умолчанию «default» - Передача только функции
+//! Экспорт по умолчанию может быть только один
+function sayBye() {
+  console.log('Bye bye bye!');
 }
 
 /***/ })
@@ -96,13 +103,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //* Ипорт всех сущностей
+// Для именнованого синтаксиса, передача переменных из другого модуля.
+// Импорт в ввиде деструктуризации
+
+console.log(`${_main_js__WEBPACK_IMPORTED_MODULE_0__.one} and ${_main_js__WEBPACK_IMPORTED_MODULE_0__.two}`);
+
+// Можно сразу переименовать переданную переменную
+
+console.log(_main_js__WEBPACK_IMPORTED_MODULE_0__.one);
+
+// Иморт всех переменных и функций с другого модуля
+// И сразу можно переименовать
+
+
+// Чтобв обратиться
+// console.log(data.one);
+// console.log(data.two);
+_main_js__WEBPACK_IMPORTED_MODULE_0__.sayHy();
 
 
 //* Импорт по умолчанию
 
-
-// console.log(first);
-console.log(`${_main_js__WEBPACK_IMPORTED_MODULE_0__.one} and ${_main_js__WEBPACK_IMPORTED_MODULE_0__.two}`);
 (0,_main_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 

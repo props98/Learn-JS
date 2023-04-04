@@ -1,12 +1,18 @@
 'use strict';
 
-//* Именованный экспорт
+//* Именованный экспорт, обязательно должно быть имя
 export let one = 1;
 
 let two = 2;
 export {two};
 
-//* Экспорт по умолчанию «default»
-export default function sayHi() {
-  console.log('Hello');
+// Экспорт функций
+export function sayHy() {
+  console.log('Hello!');
+}
+
+//* Экспорт по умолчанию «default» - Передача только функции
+//! Экспорт по умолчанию может быть только один
+export default function sayBye() {
+  console.log('Bye bye bye!');
 }
