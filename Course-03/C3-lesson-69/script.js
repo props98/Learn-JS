@@ -89,26 +89,37 @@ console.clear();
 
 //! Training
 
-// class Car {
-//   constructor(model, color) {
-//     this.model = model;
-//     this.color = color;
-//   }
+class Car {
+  constructor(carBrand, wheels, doors) {
+    this.carBrand = carBrand;
+    this.wheels = wheels;
+    this.doors = doors;
+  }
 
-//   #wheels = 5;
+  carPresentation() {
+    console.log(`This is a car ${this.carBrand}`);
+  }
 
-//   carInfo() {
-//     console.log(`Car: ${this.model}, color: ${this.color}, wheels: ${this.#wheels}`);
-//   }
-// }
+  carFeature() {
+    console.log(`This car has ${this.wheels} wheels`);
+    console.log(`and ${this.doors} doors`);
+  }
 
-// const jeep = new Car('Jeep', 'red');
-// console.log(jeep);
+}
 
-// jeep.carInfo();
+class Sports extends Car {
+  constructor(carBrand, wheels, doors, speed) {
+    super(carBrand, wheels, doors);
+    this.speed = speed;
+  }
+}
 
-// jeep.wheels = 10;
-// jeep.color = 'green';
+const jeep = new Car('Jeep', 5, 5);
+console.log(jeep.carBrand);
+jeep.carPresentation();
+jeep.carFeature(2);
 
-// jeep.carInfo();
-
+const bmw = new Sports('BMW', 4, 2, 300);
+console.log(bmw.carBrand);
+bmw.carPresentation();
+bmw.carFeature();
