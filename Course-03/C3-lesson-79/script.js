@@ -1,6 +1,6 @@
 'use strict';
 
-//* Функции-генераторы
+//* Функции-генераторы + « * »
 
 function* generator() {
   yield 'S';
@@ -13,25 +13,25 @@ function* generator() {
 
 const str = generator();
 
-// console.log(str.next()); // 'S'
-// console.log(str.next()); // 'c'
-// console.log(str.next()); // 'r'
-// console.log(str.next()); // 'i'
-// console.log(str.next()); // 'p'
-// console.log(str.next()); // 't'
-// console.log(str.next()); // undefined
-
 console.log(str.next().value);
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+
+console.log(str.next()); // value: undefined
 
 
-function* count(n) {
-  for (let i = 0; i < n; i++) {
+//* Перебор функции конструктора на каждой итерации
+function* count(num) {
+  for (let i = 0; i < num; i++) {
     yield i;
   }
 }
 
-//* Перебор функции конструктора на каждой итерации
-// const counter = count(7);
+// const counter = count(5);
+// console.log(counter.next());
 // console.log(counter.next().value);
 // console.log(counter.next().value);
 // console.log(counter.next().value);
