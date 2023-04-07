@@ -1,11 +1,43 @@
 'use strict';
 
-//* Функции-генераторы
+//* Функции-генераторы + « * »
 
+function* generator() {
+  yield 'S';
+  yield 'c';
+  yield 'r';
+  yield 'i';
+  yield 'p';
+  yield 't';
+}
+
+const str = generator();
+
+console.log(str.next().value);
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+console.log(str.next());
+
+console.log(str.next()); // value: undefined
 
 
 //* Перебор функции конструктора на каждой итерации
+function* count(num) {
+  for (let i = 0; i < num; i++) {
+    yield i;
+  }
+}
 
+// const counter = count(5);
+// console.log(counter.next());
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
 
 
 //* Перебро всей функции конструктора
+for (let k of count(7)) {
+  console.log(k);
+}
