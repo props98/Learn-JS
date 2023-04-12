@@ -89,37 +89,23 @@ console.clear();
 
 //! Training
 
-class Car {
-  constructor(carBrand, wheels, doors) {
-    this.carBrand = carBrand;
-    this.wheels = wheels;
+class Car{
+  constructor(brand, doors, wheels, spareWheel) {
+    this.brand = brand;
     this.doors = doors;
-  }
-
-  carPresentation() {
-    console.log(`This is a car ${this.carBrand}`);
+    this.wheels = wheels;
+    this.spareWheel = spareWheel;
   }
 
   carFeature() {
-    console.log(`This car has ${this.wheels} wheels`);
-    console.log(`and ${this.doors} doors`);
-  }
-
-}
-
-class Sports extends Car {
-  constructor(carBrand, wheels, doors, speed) {
-    super(carBrand, wheels, doors);
-    this.speed = speed;
+    if (this.spareWheel) {
+      console.log(`This car ${this.brand} has ${this.doors} doors and ${this.wheels} wheels and has one spare wheel`);
+    } else {
+      console.log(`This car ${this.brand} has ${this.doors} doors and ${this.wheels} wheels`);
+    }
   }
 }
 
-const jeep = new Car('Jeep', 5, 5);
-console.log(jeep.carBrand);
-jeep.carPresentation();
-jeep.carFeature(2);
+const jeep = new Car('Jeep', 2, 4, false);
 
-const bmw = new Sports('BMW', 4, 2, 300);
-console.log(bmw.carBrand);
-bmw.carPresentation();
-bmw.carFeature();
+jeep.carFeature();
