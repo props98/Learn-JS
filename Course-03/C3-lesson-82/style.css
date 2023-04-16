@@ -15,10 +15,41 @@ button {
   margin-top: 20px;
 } */
 
-#tns1-mw {
-  width: 500px;
+
+.tns-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.tns-item {
-  width: 500px;
+.my-slider {
+  display: flex;
+  overflow: hidden;
+  background: red;
 }
+/* 
+.my-slider img {
+  display: block;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+} */
+
+#tns1-mw {
+  width: 50%;
+}
+
+.tns-ovh {
+ margin-top: 40px;
+}
+
+.tns-horizontal.tns-subpixel > .tns-item {
+  display: block;
+  vertical-align: middle;
+}
+
+/* .tns-item {
+  width: 500px;
+} */
