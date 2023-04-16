@@ -6,5 +6,8 @@ tns({
   container: '.my-slider',
   items: 1,
   slideBy: 'page',
-  autoplay: true
+  autoplay: false
 });
+
+//* https://github.com/ganlanyuan/tiny-slider
+// https://kenwheeler.github.io/slick/
