@@ -8,62 +8,62 @@
 //* Созданный метод объекта
 const options = {
   name: 'test',
-  width: 1920,
-  height: 1080,
+  width: 1024,
+  height: 1024,
   colors: {
     border: 'black',
-    bg: 'red'
+    background: 'red'
   },
   makeTest: function() {
-    console.log('Hello!');
+    console.log('Test!');
   }
 };
 
-//* Деструктуризация объекта
-const {name, width, height} = options;
-const {border, bg} = options.colors;
+//! Созданный метод объекта
+options.makeTest();
 
-console.log(name);
-console.log(width);
-console.log(bg);
+// console.log(options.name);
+// console.log(options.colors.border);
 
-options.makeTest(); // Вызов метода объекта
-
-// console.log(options.name); // Вызов свойства объекта
-
-//* Узнаем сколько свойств у объекта
-//! Старый и не удобный метод подсчета свойств в объекте
-
-//! Удаление свойства объекта при помощи «delete»
-// delete options.name; // Удаление свойства объекта
-// console.log(options);
-
-// for (let key in options) { // Перебор свойств объекта «for in»
-//   if (typeof(options[key]) === 'object') { 
-//     for (let i in options[key]) {
-//       console.log(`Свойство: ${i} имеет значение: ${options[key][i]}`);
-//     }
-//   } else {
-//     console.log(`Свойство: ${key} имеет значение: ${options[key]}`);
-//   }
-// }
-
-//! Перебор вложенных объектов «for (let item in object)»
+// Перебор объекта поверхностных свойств
 // let counter = 0;
-// for (let key in options) { // Подсчет свойств объекта «for in»
-//   if (typeof(options[key]) === 'object') { 
+// for (let key in options) {
+//   if (typeof(options[key]) === 'object') {
 //     for (let i in options[key]) {
-//       console.log(`Свойство: ${i} имеет значение: ${options[key][i]}`);
-//       // counter++
+//       console.log(`Свойства ${i} имеет значение ${options[key][i]}`);
+//       // counter++;
 //     }
 //   } else {
-//     console.log(`Свойство: ${key} имеет значение: ${options[key]}`);
-//     counter++
+//     console.log(`Свойства ${key} имеет значение ${options[key]}`);
+//     counter++;
 //   }
-// }
+// };
+
 // console.log(counter);
 
-//* Метод //* Делаем из свойств объекта массив «Object.keys()»
+
+//* Деструктуризация объекта
+const {border, background} = options.colors;
+console.log(border, background);
+
+
+//* Узнаем сколько свойств у объекта / без вложенных
+//! Старый и не удобный метод подсчета свойств в объекте
+// let counter = 0;
+// for (let key in options) {
+//     counter++;
+// };
+
+// console.log(counter);
+
+//! Удаление свойства объекта при помощи «delete»
+// delete options.name;
+// console.log(options);
+
+//! Перебор вложенных объектов «for (let item in object)»
+
+//* Встроенный метод 
+//* Делаем из свойств объекта массив «Object.keys()»
 console.log(Object.keys(options));
 
 //* Делаем подсчет массива свойством «length»
